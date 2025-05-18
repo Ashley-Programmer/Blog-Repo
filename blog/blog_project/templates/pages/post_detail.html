@@ -1,0 +1,32 @@
+{% extends "pages/base.html" %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+  </head>
+  <body>
+
+    {% block content %}
+
+    <div class="post-entry-detail">
+      <h1>Created Post</h1>
+      <br>
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body }}</p>
+      <br>
+      <a href="{% url "post_edit" post.pk %}">Edit Blog Post</a>
+      <br>
+      <a href="{% url "post_delete" post.pk %}">Delete Blog Post</a>
+    </div>
+
+    {% endblock content %}
+
+    <script src="" async defer></script>
+  </body>
+</html>

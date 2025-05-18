@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Blog{% endblock title %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/Base.css' %}">
+  </head>
+  <body>
+
+    <header>
+      <a href="" class="logo-holder">
+        <div class="logo">B</div>
+        <div class="logo-text">Blog</div>
+      </a>
+
+      <nav>
+        <ul id="menu">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'post_new' %}">+ New Blog Post</a></li>
+        </ul>
+        <a href="" class="mobile-toggle" onclick="toggleMobileMenu();">=</a>
+      </nav>
+    </header>
+
+    <div class="user-auth">
+      {% if user.is_authenticated %}
+      <p>Hi, Welcome {{ user.username }}</p>
+      <a href="{% url 'login' %}">Logout</a>
+
+      {% else %}
+
+      <p>You are not loggedIn!</p>
+      <a href="{% url 'login' %}">Login</a>
+      {% endif %}
+    </div>
+
+    <div>
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+
+    <script src="" async defer></script>
+  </body>
+</html>
